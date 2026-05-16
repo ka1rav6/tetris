@@ -8,7 +8,7 @@ class Game{
 public:
     Game();
     ~Game();
-    void init(const std::string title, int x, int y, int height, int width);
+    void init(const std::string title, int x, int y, int width, int height);
     void handleEvents();
     bool running();
     void render();

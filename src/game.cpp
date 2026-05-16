@@ -1,11 +1,12 @@
 #include "../include/game.h"
+#include "../include/board.h"
 
+Board *board = nullptr;
 
 Game::Game(){}
 Game::~Game(){}
 
-void Game::init(const std::string title, int x, int y, int height, int width)
-{
+void Game::init(const std::string title, int x, int y, int width, int height){
     if(SDL_Init(SDL_INIT_EVERYTHING) != 0){
         perror("Subsystems Initialisation Failed");
         return;
@@ -18,9 +19,11 @@ void Game::init(const std::string title, int x, int y, int height, int width)
 
     rend = SDL_CreateRenderer(window, -1, 0);
     if (rend){
-        SDL_SetRenderDrawColor(rend, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
         std::cout << "Renderer has been created successfully" <<std::endl;
     }
+    board = new Board();
+    board->initGrid(rend);
     isRunning = true;
 
 }
@@ -45,6 +48,7 @@ bool Game::running(){
 void Game::render(){
     SDL_RenderClear(rend);
     // this is where i would add stuff to render
+    board->renderGrid(rend);
     SDL_RenderPresent(rend);
 }
 void Game::update(){}

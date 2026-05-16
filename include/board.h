@@ -8,7 +8,7 @@ class Board{
 public:
     Board();
     ~Board();
-    void initGrid();
+    void initGrid(SDL_Renderer *rend);
     void placePiece();
     void renderGrid(SDL_Renderer *rend);
 private:

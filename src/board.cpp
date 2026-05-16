@@ -1,27 +1,15 @@
 #include "../include/board.h"
 
-enum Fill {
-    EMPTY, // 0
-    FILLED, // 1 
-    FIXED // 2
-};
+
 
 Board::Board(){};
 Board::~Board(){};
 
 void Board::initGrid(SDL_Renderer *rend){
-
     for(int row = 0; row < ROWS; row++){
-        for(int col = 0; col < COLS; col++){
+        for(int col = 0; col < COLS; col++)
             grid[row][col] = EMPTY;
-        }
     }
-    //test
-    grid[5][5] = FILLED;
-    grid[5][6] = FILLED;
-    grid[5][7] = FILLED;
-    grid[1][1] = FILLED;
-
 }
 
 void Board::renderGrid(SDL_Renderer *rend){

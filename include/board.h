@@ -2,7 +2,7 @@
 #define BOARD_H
 
 #include "definitions.h"
-
+#include "piece.h"
 
 class Board{
 public:
@@ -15,6 +15,7 @@ private:
     int grid[20][20];
     const int TILE_HEIGHT = WIN_HEIGHT / ROWS;
     const int TILE_WIDTH = WIN_WIDTH / COLS;
+    Piece *pieces;
 };
 
 

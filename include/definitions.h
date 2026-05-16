@@ -11,6 +11,8 @@
 
 #define WIN_HEIGHT 800
 #define WIN_WIDTH 600
+#define ROWS 20
+#define COLS 10
 
 
 

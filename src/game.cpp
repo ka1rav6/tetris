@@ -46,6 +46,7 @@ bool Game::running(){
 }
 
 void Game::render(){
+    SDL_SetRenderDrawColor(rend, 0, 0, 0, 255); // clear color
     SDL_RenderClear(rend);
     // this is where i would add stuff to render
     board->renderGrid(rend);

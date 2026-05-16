@@ -16,11 +16,13 @@ void Board::initGrid(SDL_Renderer *rend){
             grid[row][col] = EMPTY;
         }
     }
-
-    renderGrid(rend);
+    //test
+    grid[5][5] = FILLED;
+    grid[5][6] = FILLED;
+    grid[5][7] = FILLED;
+    grid[1][1] = FILLED;
 
 }
-
 
 void Board::renderGrid(SDL_Renderer *rend){
     SDL_Rect block;
@@ -29,9 +31,11 @@ void Board::renderGrid(SDL_Renderer *rend){
     SDL_SetRenderDrawColor(rend, 255,255,255,255);
     for(int row = 0; row < ROWS; row++){
         for(int col = 0; col < COLS; col++){
-            block.x = col * TILE_WIDTH;
-            block.y = row * TILE_HEIGHT;
-            SDL_RenderFillRect(rend, &block);
+            if(grid[row][col] == FILLED){
+                block.x = col * TILE_WIDTH;
+                block.y = row * TILE_HEIGHT;
+                SDL_RenderFillRect(rend, &block);
+            }
         }
     }
 }

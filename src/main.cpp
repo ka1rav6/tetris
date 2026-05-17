@@ -11,6 +11,7 @@ int main(int argc, const char** argv){
         game->handleEvents();
         game->update();
         game->render();
+        SDL_Delay(16);
     }
     game->clean();
     return 0;

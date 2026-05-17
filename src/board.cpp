@@ -1,26 +1,29 @@
 #include "../include/board.h"
 #include "../include/piece.h"
 
+static const int CELL_W = WIN_WIDTH / COLS;
+static const int CELL_H = WIN_HEIGHT / ROWS;
+
 Board::Board(){}
 Board::~Board(){}
 
 void Board::initGrid(SDL_Renderer *rend){
     for(int row = 0; row < ROWS; row++) {
-        for(int col = 0; col < COLS; col++)     
+        for(int col = 0; col < COLS; col++)
             grid[row][col] = EMPTY;
     }
     generatePiece();
 }
 void Board::renderGrid(SDL_Renderer *rend) {
     SDL_Rect block;
-    block.w = WIN_WIDTH;
-    block.h = WIN_HEIGHT;
-    SDL_SetRenderDrawColor(rend, 255, 255, 255, 255);
+    block.w = CELL_W;
+    block.h = CELL_H;
     for(int row = 0; row < ROWS; row++) {
         for(int col = 0; col < COLS; col++) {
-            if(grid[row][col] == FILLED) {
-                block.x = col * WIN_WIDTH;
-                block.y = row * WIN_HEIGHT;
+            if(grid[row][col] == FIXED) {
+                SDL_SetRenderDrawColor(rend, 128, 128, 128, 255);
+                block.x = col * CELL_W;
+                block.y = row * CELL_H;
                 SDL_RenderFillRect(rend, &block);
             }
         }
@@ -33,8 +36,8 @@ void Board::generatePiece() {
     currentPiece.init(this, type);
 }
 void Board::handleEvent(SDL_Event &e) {
-    currentPiece.handleEvent(e);
+    currentPiece.handleEvent(e, this);
 }
 void Board::update() {
-    currentPiece.update();
+    currentPiece.update(this);
 }

@@ -1,4 +1,9 @@
 #!/bin/bash
+echo "Building Game"
+
+cd build && cmake .. && make && cd ..
+
+echo "BUILT GAME!"
 
 echo "Running game"
 

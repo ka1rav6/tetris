@@ -8,6 +8,7 @@
 #include <string>
 #include <cstring>
 #include <vector>
+#include <map>
 
 #define WIN_HEIGHT 800
 #define WIN_WIDTH 600

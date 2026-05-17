@@ -12,26 +12,25 @@ public:
     Piece();
     ~Piece();
     void init(Board* board, char type);
-    void PlaceOnBoard(Board* b);
-    void RemoveFromBoard(Board* b);
     void handleEvent(SDL_Event &e, Board* board);
     void update(Board* board);
     void render(SDL_Renderer *r, Board* board);
-    void rotate();
+    void rotate(Board* b);
     bool canMove(Board* b, int newX, int newY);
     bool canRotate(Board* b);
     void lockToBoard(Board* b);
+    void hardDrop(Board* b);
+    int getGhostY(Board* b);
+    shapeGrid getShape() { return currentShape; }
+    char getType() { return type; }
 private:
-    char type;       // I, O, T, S, Z, J, L
-    int rotation;   // 0–3
+    char type;
+    int rotation;
     int xpos, ypos;
     shapeGrid currentShape;
-    void rotateLeft();
     void rotateRight();
     Uint32 lastFallTime;
     Uint32 fallDelay;
 };
-
-
 
 #endif

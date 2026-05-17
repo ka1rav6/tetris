@@ -274,13 +274,6 @@ Potential future additions:
 
 ---
 
-## Repository
-
-GitHub Repository:
-
-[https://github.com/ka1rav6/tetris](https://github.com/ka1rav6/tetris)
-
----
 
 ## Acknowledgements
 
@@ -290,4 +283,5 @@ Special thanks to:
 * Open-source game development resources
 * The C++ community
 
-
+## License
+This project is licensed under the MIT License - see the [LICENSE.md] file for details.

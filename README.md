@@ -187,8 +187,9 @@ Install:
 ### Ubuntu/Debian
 
 ```bash
-sudo apt update
-sudo apt install libsdl2-dev libsdl2-image-dev cmake g++
+    cd tetris
+    chmod +x install.sh
+    ./install.sh
 ```
 
 ---

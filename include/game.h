@@ -4,7 +4,6 @@
 #include "definitions.h"
 
 class Game{
-
 public:
     Game();
     ~Game();
@@ -18,9 +17,6 @@ private:
     bool isRunning;
     SDL_Window* window;
     SDL_Renderer* rend;
-    
 };
 
-
-
-#endif  /* game.h*/
+#endif

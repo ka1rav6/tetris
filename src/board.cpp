@@ -126,10 +126,12 @@ void Board::renderGrid(SDL_Renderer *rend){
 
     drawRect(rend, px, py, 120, 1, 80, 80, 80);
     py += 10;
-    shapeGrid ns = shapes_Name[0] == nextType ? currentPiece.getShape() : currentPiece.getShape();
-    Piece preview;
-    preview.init(nullptr, nextType);
-    shapeGrid ps = preview.getShape();
+    shapeGrid ps;
+    {
+        Piece preview;
+        preview.init(nullptr, nextType);
+        ps = preview.getShape();
+    }
     for(int row = 0; row < 4; row++){
         for(int col = 0; col < 4; col++){
             if(ps[row][col]){

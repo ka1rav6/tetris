@@ -9,6 +9,7 @@ const char shapes_Name[7] = {'I', 'O', 'T', 'S', 'Z', 'J', 'L'};
 
 class Piece {
 public:
+    Uint32 fallDelay;
     Piece();
     ~Piece();
     void init(Board* board, char type);
@@ -30,7 +31,6 @@ private:
     shapeGrid currentShape;
     void rotateRight();
     Uint32 lastFallTime;
-    Uint32 fallDelay;
 };
 
 #endif

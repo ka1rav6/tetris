@@ -37,7 +37,7 @@ void Game::handleEvents(){
             isRunning = false;
             break;
         default:
-            // handle more events here
+            board->handleEvent(event);
             break;
     }
 }
@@ -52,7 +52,9 @@ void Game::render(){
     board->renderGrid(rend);
     SDL_RenderPresent(rend);
 }
-void Game::update(){}
+void Game::update(){
+    board->update();
+}
 void Game::clean(){
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(rend);

@@ -4,21 +4,18 @@
 #include "definitions.h"
 #include "piece.h"
 
-class Board{
+class Board
+{
 public:
     Board();
     ~Board();
+    Fill grid[ROWS][COLS];
+    Piece currentPiece;
     void initGrid(SDL_Renderer *rend);
-    void placePiece();
     void renderGrid(SDL_Renderer *rend);
-    int grid[20][20];
-private:
-    const int TILE_HEIGHT = WIN_HEIGHT / ROWS;
-    const int TILE_WIDTH = WIN_WIDTH / COLS;
-    Piece *pieces;
     void generatePiece();
+    void handleEvent(SDL_Event &e);
+    void update();
 };
-
-
 
 #endif

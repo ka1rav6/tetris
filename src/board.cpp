@@ -27,3 +27,9 @@ void Board::renderGrid(SDL_Renderer *rend){
         }
     }
 }
+void Board::generatePiece(){
+    int num = rand() % 7;
+    char type = shapes_Name[num];
+    Piece p;
+    p.init(this, type);
+}

@@ -11,11 +11,12 @@ public:
     void initGrid(SDL_Renderer *rend);
     void placePiece();
     void renderGrid(SDL_Renderer *rend);
-private:
     int grid[20][20];
+private:
     const int TILE_HEIGHT = WIN_HEIGHT / ROWS;
     const int TILE_WIDTH = WIN_WIDTH / COLS;
     Piece *pieces;
+    void generatePiece();
 };
 
 
